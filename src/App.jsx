@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import Home from "./pages/Home";
@@ -7,13 +8,14 @@ import Aboutus from "./pages/Aboutus";
 import Agenda from "./pages/Agenda";
 import Faq from "./pages/Faq";
 import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
 import './App.css'
-import { useState, useEffect } from "react";
 
 function App() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isMobileScreen, setIsMobileScreen] = useState(false)
 
   // set isSidebarOpen to false if the screen's width >=768
   useEffect(() => {
@@ -24,6 +26,7 @@ function App() {
 
       // Update the state based on screen size
       setIsSidebarOpen(isSmallScreen ? isSidebarOpen : false);
+      setIsMobileScreen(screenWidth < 768); // Set isMobileScreen based on screen width
     };
 
     // Add event listener for window resize
@@ -40,7 +43,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar sidebarOpen isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <Navbar sidebarOpen isMobileScreen={isMobileScreen} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      {isMobileScreen && <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>}
       <div className="max-w-6xl m-auto px-12">
         {!isSidebarOpen && 
         <Routes>

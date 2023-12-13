@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import menuIcon from "../assets/menu-icon.svg";
 import closeIcon from "../assets/close-icone.svg";
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ isMobileScreen, isSidebarOpen, setIsSidebarOpen }) => {
 
     const toggleSideBar = () => {
         setIsSidebarOpen(!isSidebarOpen)
@@ -18,36 +18,37 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                     <img src={logo} alt="logo" className="w-28" />
                 </Link>
             </span>
-            <span className="relative z-10">
+
+            {isMobileScreen && <span className="relative z-10">
                 <img src={`${isSidebarOpen ? closeIcon : menuIcon}`} alt="menu-icon" 
-                className="md:hidden cursor-pointer" onClick={toggleSideBar}/>
-            </span>
-            <ul 
+                className="cursor-pointer" onClick={toggleSideBar}/>
+            </span>}
+
+            {!isMobileScreen && <ul 
                 className={`flex sidebar
-                flex-col items-center justify-center w-screen h-screen absolute top-0 ${isSidebarOpen ? "left-0" : 'left-full'} right-0 text-2xl
-                md:flex-row md:justify-between md:w-2/5 md:h-auto md:text-base md:min-w-[350px] text-white md:static`}
+                md:flex-row justify-between w-2/5 h-auto text-base min-w-[350px] text-white`}
             >
-                <il className="my-2 pb-2 md:pb-0 border-b-2 border-beige md:border-none md:my-0" >
+                <li >
                     <NavLink to="" className=" opacity-60 md:opacity-100 
                     leading-4 px-2.5 pb-0.5">Home</NavLink>
-                </il>
-                <il className="my-2 pb-2 md:pb-0 border-b-2 border-beige md:border-none md:my-0" >
-                    <NavLink to="cse" className=" opacity-60 md:opacity-100 
+                </li>
+                <li>
+                    <NavLink to="cse" className="
                     leading-4 px-2.5 pb-0.5">CSE</NavLink>
-                </il>
-                <il className="my-2 pb-2 md:pb-0 border-b-2 border-beige md:border-none md:my-0" >
-                    <NavLink to="about-us" className=" opacity-60 md:opacity-100 
+                </li>
+                <li>
+                    <NavLink to="about-us" className="
                     leading-4 px-2.5 pb-0.5">About Us</NavLink>
-                </il>
-                <il className="my-2 pb-2 md:pb-0 border-b-2 border-beige md:border-none md:my-0" >
-                    <NavLink to="agend" className=" opacity-60 md:opacity-100 
+                </li>
+                <li>
+                    <NavLink to="agend" className="
                     leading-4 px-2.5 pb-0.5">Agenda</NavLink>
-                </il>
-                <il className="my-2 pb-2 md:pb-0 border-b-2 border-beige md:border-none md:my-0" >
-                    <NavLink to="faq" className=" opacity-60 md:opacity-100 
+                </li>
+                <li>
+                    <NavLink to="faq" className="
                     leading-4 px-2.5 pb-0.5">FAQ</NavLink>
-                </il>
-            </ul>
+                </li>
+            </ul>}
         </nav>
     </header>
   )

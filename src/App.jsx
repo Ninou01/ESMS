@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 
 import './App.css'
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 function App() {
 

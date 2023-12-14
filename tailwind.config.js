@@ -14,6 +14,9 @@ export default {
         beige: '#F4DEC5',
       }
     },
+    fontFamily: {
+      'poppins': ['poppins', 'sans-serif'],
+    },
   },
   plugins: [],
 }

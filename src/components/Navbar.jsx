@@ -15,7 +15,7 @@ const Navbar = ({ isMobileScreen, isSidebarOpen, setIsSidebarOpen }) => {
         <nav className="max-w-6xl m-auto flex justify-between items-center">
             <span className="relative z-10">
                 <Link to="">
-                    <img src={logo} alt="logo" className="w-28" />
+                    <img src={logo} alt="logo" className="w-36" />
                 </Link>
             </span>
 

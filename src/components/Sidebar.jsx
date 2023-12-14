@@ -6,7 +6,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen}) => {
     const onClick = () => setIsSidebarOpen(!isSidebarOpen) 
 
   return (
-    <div className="absolute w-screen h-screen overflow-hidden">
+    <div className="absolute w-screen h-screen overflow-hidden z-10">
         <ul 
                 className={`flex sidebar
                 flex-col items-center justify-center w-screen h-screen absolute top-0 ${isSidebarOpen ? "left-0" : 'left-full'} right-0 text-2xl

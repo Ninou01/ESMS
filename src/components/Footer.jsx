@@ -9,7 +9,7 @@ import instagramIcon from '../assets/instagram-icon.svg'
 import cseLogo from '../assets/cse-logo.svg'
 const Footer = ({ isMobileScreen }) => {
   return (
-    <footer className='w-full h-48 bg-[center_top] bg-cover bg-no-repeat' style={{backgroundImage: `url(${footerBG})`}}>
+    <footer className='w-full h-48 bg-[center_top] bg-cover bg-no-repeat' >
         <div className='max-w-6xl m-auto px-12 relative h-full'>
           {!isMobileScreen && 
             <span className='absolute -translate-y-1/2 top-1/2 left-[20%]'>

@@ -4,10 +4,14 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import menuIcon from "../assets/menu-icon.svg";
 import closeIcon from "../assets/close-icone.svg";
-const Navbar = ({ isMobileScreen, isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ isMobileScreen, isSidebarOpen, setIsSidebarOpen, setShowFooter }) => {
 
     const toggleSideBar = () => {
         setIsSidebarOpen(!isSidebarOpen)
+    }
+
+    const onClick = (isFaq) => {
+        setShowFooter(isFaq)
     }
 
   return (
@@ -28,23 +32,23 @@ const Navbar = ({ isMobileScreen, isSidebarOpen, setIsSidebarOpen }) => {
                 className={`flex sidebar
                 md:flex-row justify-between w-2/5 h-auto text-base min-w-[350px] text-white`}
             >
-                <li >
+                <li  onClick={() => onClick(false)}>
                     <NavLink to="" className=" opacity-60 md:opacity-100 
                     leading-4 px-2.5 pb-0.5">Home</NavLink>
                 </li>
-                <li>
+                <li onClick={() => onClick(false)}>
                     <NavLink to="cse" className="
                     leading-4 px-2.5 pb-0.5">CSE</NavLink>
                 </li>
-                <li>
+                <li onClick={() => onClick(false)}>
                     <NavLink to="about-us" className="
                     leading-4 px-2.5 pb-0.5">About Us</NavLink>
                 </li>
-                <li>
+                {/* <li onClick={() => onClick(false)}>
                     <NavLink to="agend" className="
                     leading-4 px-2.5 pb-0.5">Agenda</NavLink>
-                </li>
-                <li>
+                </li> */}
+                <li onClick={() => onClick(true)}>
                     <NavLink to="faq" className="
                     leading-4 px-2.5 pb-0.5">FAQ</NavLink>
                 </li>

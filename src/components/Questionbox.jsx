@@ -4,9 +4,9 @@ import arrow from '../assets/ArrowCircleUp.svg'
 const Questionbox = ({ question, answer, onClick, isQuestionOpen }) => {
   return (
     <div className="box w-full h-full bg-[#83889d] text-white relative ">
-        <div className="question flex justify-between items-center p-4 md:pl-24 cursor-pointer"
+        <div className="question flex justify-between items-center p-2 md:pl-24 cursor-pointer"
         onClick={onClick}>
-        <span className=' text-2xl font-bold'>{question}</span>
+        <span className=' text-xl font-bold'>{question}</span>
         <span className={`${isQuestionOpen ? "-rotate-180" : "rotate-0"} transition-[transform] duration-500`}>
             <img src={arrow} alt="arrow" className='w-10' />
         </span>

@@ -12,11 +12,13 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 
 import './App.css'
+import Footer from "./components/footer";
 
 function App() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMobileScreen, setIsMobileScreen] = useState(false)
+  const [showFooter, setShowFooter] = useState(false)
 
   // set isSidebarOpen to false if the screen's width >=768
   useEffect(() => {
@@ -44,8 +46,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar sidebarOpen isMobileScreen={isMobileScreen} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      {isMobileScreen && <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>}
+      <Navbar isMobileScreen={isMobileScreen} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} setShowFooter={setShowFooter}/>
+      {isMobileScreen && <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} setShowFooter={setShowFooter}/>}
       <div className="w-screen min-h-[86.7vh] relative overflow-hidden">
         <div className="max-w-6xl m-auto px-12">
           <Circles/>
@@ -60,6 +62,7 @@ function App() {
             </Route>
           </Routes>}
         </div>
+        {showFooter && <Footer isMobileScreen={isMobileScreen}/>}
       </div>
     </BrowserRouter>
   )

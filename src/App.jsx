@@ -62,7 +62,7 @@ function App() {
             </Route>
           </Routes>}
         </div>
-        {showFooter && <Footer isMobileScreen={isMobileScreen}/>}
+        {!isSidebarOpen && showFooter && <Footer isMobileScreen={isMobileScreen}/>}
       </div>
     </BrowserRouter>
   )
